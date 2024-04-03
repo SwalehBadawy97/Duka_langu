@@ -1,3 +1,4 @@
+import 'package:duka_langu/src/views/home_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:duka_langu/splash.dart';
 
@@ -152,12 +153,25 @@ class HomePage extends StatelessWidget {
           children: [
             // ignore: prefer_const_constructors
             Text('Development in progress. Fakestore API to be implemented'),
+
             Center(
-              child: ElevatedButton(
+              /*child:
+                    ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 child: const Text("Return to previous page"),
+              )
+              */
+
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePageView()),
+                  );
+                },
+                child: HomePageView(),
               ),
             ),
           ],
