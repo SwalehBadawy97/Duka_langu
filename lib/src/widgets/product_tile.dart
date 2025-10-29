@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class ProductTile extends StatelessWidget {
   final Welcome product;
-  const ProductTile(this.product, {Key? key}) : super(key: key);
+  const ProductTile(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {

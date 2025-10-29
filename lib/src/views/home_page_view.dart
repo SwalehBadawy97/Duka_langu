@@ -5,6 +5,8 @@ import 'package:duka_langu/src/controllers/product_controller.dart';
 import 'package:duka_langu/src/widgets/product_tile.dart';
 
 class HomePageView extends StatefulWidget {
+  const HomePageView({super.key}); // Add const constructor
+
   @override
   State<HomePageView> createState() => _HomePageViewState();
 }
@@ -30,8 +32,8 @@ class _HomePageViewState extends State<HomePageView> {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              children: [
-                const Expanded(
+              children: const [
+                Expanded(
                   child: Text(
                     "Duka_langu",
                     style: TextStyle(
@@ -47,17 +49,17 @@ class _HomePageViewState extends State<HomePageView> {
             child: Obx(
               () {
                 if (productController.isLoading.value) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else {
-                  return StaggeredGridView.countBuilder(
+                  return MasonryGridView.count(
                     crossAxisCount: 2,
                     itemCount: productController.productList.length,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
+                    padding: const EdgeInsets.all(16),
                     itemBuilder: (context, index) {
                       return ProductTile(productController.productList[index]);
                     },
-                    staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                   );
                 }
               },
